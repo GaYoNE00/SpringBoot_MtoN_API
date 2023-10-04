@@ -40,8 +40,8 @@ public class ChatServiceImpl implements ChatService {
 
     }
     @Override
-    public String subans(String category) {
-        String results = repository.findActionsByCategoryName(category).toString();
+    public String subans(String intent, String category) {
+        String results = repository.findActionsByCategoryName(intent, category).toString();
         if (results != null && !results.isEmpty()&& !results.equals("[]")) {
             System.out.println("그냥 쿼리---------------------"+results);
             return results;

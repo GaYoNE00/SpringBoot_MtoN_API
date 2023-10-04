@@ -54,10 +54,10 @@ public class SampleController {
 
     }
     @PostMapping("sub_search")
-    public ResponseEntity<String> subsearch(@RequestParam String category, HttpServletRequest request){
-        String result = Service.subans(category);
+    public ResponseEntity<String> subsearch(@RequestParam String intent, @RequestParam String category, HttpServletRequest request){
+        String result = Service.subans(intent,category);
         ip = request.getRemoteAddr();
-        System.out.println("[" + currentTime + "] IP: " + ip + " | Action: " + category);
+        System.out.println("[" + currentTime + "] IP: " + ip + " | intent: " + intent + " | category: " + category);
         if(result!=null){
             return ResponseEntity.ok(result);
         }else{

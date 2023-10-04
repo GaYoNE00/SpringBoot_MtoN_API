@@ -24,6 +24,10 @@ public class basiginfo_entity {
     @JoinColumn(name = "aid", referencedColumnName = "aid", nullable = false)
     private action_entity action;
 
+    @ManyToOne
+    @JoinColumn(name = "iid", referencedColumnName = "iid", nullable = false)
+    private intent_entity intent;
+
     @Column(name = "detail",nullable = false)
     private String detail;
 

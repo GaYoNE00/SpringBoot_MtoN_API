@@ -7,7 +7,7 @@ public interface ChatService {
 //    List<result_entity> findByCategoryAndAction(String category, String action);
 
     resultDTO ans(String category, String action);
-    String subans(String action);
+    String subans(String intent, String category);
 
     default resultDTO entityToDTO(basiginfo_entity entity){
         resultDTO dto = resultDTO.builder()
