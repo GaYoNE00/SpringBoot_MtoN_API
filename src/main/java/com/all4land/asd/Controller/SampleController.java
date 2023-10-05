@@ -65,4 +65,17 @@ public class SampleController {
         }
 
     }
+
+    @PostMapping("Msub_search")
+    public ResponseEntity<String> Msubsearch(@RequestParam String intent, @RequestParam String action, HttpServletRequest request){
+        String result = Service.Msubans(intent,action);
+        ip = request.getRemoteAddr();
+        System.out.println("[" + currentTime + "] IP: " + ip + " | intent: " + intent + " | category: " + action);
+        if(result!=null){
+            return ResponseEntity.ok(result);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
+    }
 }

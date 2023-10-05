@@ -8,6 +8,7 @@ public interface ChatService {
 
     resultDTO ans(String category, String action);
     String subans(String intent, String category);
+    String Msubans(String intent, String action);
 
     default resultDTO entityToDTO(basiginfo_entity entity){
         resultDTO dto = resultDTO.builder()

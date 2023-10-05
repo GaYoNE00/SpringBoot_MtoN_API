@@ -36,6 +36,9 @@ public interface api_repository extends JpaRepository<basiginfo_entity, Long> {
     @Query("SELECT r.action.aname FROM basiginfo_entity r WHERE r.category.cname LIKE CONCAT('%', :cname, '%') AND r.intent.intent_name = :intent_name")
     List<String> findActionsByCategoryName(@Param("intent_name") String intent_name,@Param("cname") String cname);
 
+    @Query("SELECT r.category.cname FROM basiginfo_entity r WHERE r.action.aname LIKE CONCAT('%', :aname, '%') AND r.intent.intent_name = :intent_name")
+    List<String> findCategoryByActionsName(@Param("intent_name") String intent_name,@Param("aname") String aname);
+
     @Query(value = "SELECT a.aname " +
             "FROM basiginfo_entity r " +
             "INNER JOIN category_entity c ON r.cid = c.cid " +

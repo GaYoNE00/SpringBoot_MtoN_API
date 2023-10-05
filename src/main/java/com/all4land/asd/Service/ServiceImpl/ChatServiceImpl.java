@@ -55,7 +55,22 @@ public class ChatServiceImpl implements ChatService {
             }
         }
     }
-
+    @Override
+    public String Msubans(String action, String category) {
+        String results = repository.findCategoryByActionsName(action, category).toString();
+        if (results != null && !results.isEmpty()&& !results.equals("[]")) {
+            System.out.println("그냥 쿼리---------------------"+results);
+            return results;
+        }else{
+            String res = repository.findActionsByCategoryName2(category).toString();
+            if(res !=null && !res.isEmpty()){
+                System.out.println("백업 쿼리**************************************`"+res);
+                return res;
+            }else{
+                return null;
+            }
+        }
+    }
 }
 
 
